@@ -2,7 +2,14 @@
 
 import { cookies } from "next/headers";
 import { getCookie } from "cookies-next/server";
-import { API_URL, AUTH_COOKIE_NAME } from "@/contants";
+// import { API_URL, AUTH_COOKIE_NAME } from "@/contants";
+
+const AUTH_COOKIE_NAME =
+  process.env.NODE_ENV === "production"
+    ? "__Secure-authjs.session-token"
+    : "authjs.session-token";
+
+const API_URL = process.env.API_URL || "http://localhost:8000";
 
 async function fetchApi<T>(
   endpoint: string,

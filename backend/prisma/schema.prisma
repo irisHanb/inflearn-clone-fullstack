@@ -81,7 +81,7 @@ model Course {
   description      String?  @map("description")
   thumbnailUrl     String?  @map("thumbnail_url")
   price            Int      @default(0)
-  discountPrice    Int      @map("discount_price")
+  discountPrice    Int      @default(0) @map("discount_price")
   level            String   @default("BEGINNER")
   instructorId     String   @map("instructor_id")
   isPublished      Boolean  @default(false) @map("is_published")
